@@ -62,12 +62,12 @@ angular.module('app.routes', [])
     }
   }
 })
-.state('tab.chats', {
-  url: '/chats',
+.state('tab.details', {
+  url: '/details',
   views: {
     'tab-home': {
-      templateUrl: 'templates/tab-chats.html',
-      controller: 'ChatCtrl'
+      templateUrl: 'templates/tab-details.html',
+      controller: 'DetailsCtrl'
     }
   }
 })
