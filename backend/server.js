@@ -3,6 +3,8 @@ var bodyParser = require('body-parser');
 var chalk = require('chalk');
 var io = require('./io');
 
+var FRONTEND_ORIGIN = process.env.FRONTEND_ORIGIN || "http://localhost:8100";
+
 var server = express();
 
 server.use(bodyParser.urlencoded({ extended: false }));
@@ -15,8 +17,7 @@ server.use(function (req, res, next) {
     console.log(chalk.bold(chalk.yellow(req.method)) + chalk.magenta(" " + req.path));
     console.log(chalk.bold(chalk.gray("BODY: ")) + (JSON.stringify(req.body)));
 
-    /// global custom headers ///
-    // res.setHeader('Access-Control-Allow-Origin', FRONTEND_ORIGIN);
+    res.setHeader('Access-Control-Allow-Origin', FRONTEND_ORIGIN);
 
     next();
 });
