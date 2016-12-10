@@ -137,3 +137,16 @@
   stroke-dasharray: 5,5;
 }
 
+/*Login *************************************/
+
+.action-btn{
+  border-color: transparent;
+  background-color: #0373BB;
+  color: #fff;
+}
+
+.hide-display{
+  display: none;
+}
+
+
