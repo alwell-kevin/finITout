@@ -1,5 +1,3 @@
-
-
 <ion-view title="Detailed View" id="page7">
   <ion-content padding="true" class="has-header">
     <!--<div class="card">
@@ -28,23 +26,19 @@
     <div class="list">
       <div id="item-details" class="item">
         <h3>Description</h3>
-        <p>{{transaction.description}}</p>
-      </div>
-      <div id="item-details" class="item">
-        <h3>Category</h3>
-        <p>{{transaction.category}}</p>
+        <p>{{transaction.Description}}</p>
       </div>
       <div id="item-details" class="item">
         <h3>Amount</h3>
-        <p>${{transaction.amount}}</p>
+        <p>${{transaction.Amount}}</p>
       </div>
       <div id="item-details" class="item">
         <h3>Date</h3>
-        <p>{{transaction.date}}</p>
+        <p>{{transaction['Date'] | date}}</p>
       </div>
     </div>
     <br>
-    <div class="row no-padding">
+    <div ng-if="transaction.Status === null" class="row no-padding">
       <div class="col no-padding">
         <button class="button button-full button-balanced" ng-click="decision(true)">Approve</button>
       </div>
@@ -52,8 +46,15 @@
         <button class="button button-full button-assertive " ng-click="decision(false)">Reject</button>
       </div>
     </div>
-
+    <div class="row no-padding">
+      <div ng-if="transaction.Status === 1">
+        <img src="img/approved.png">
+        <div id="transaction-price" class="transaction-item-amount">Approved.</div>
+      </div>
+      <div ng-if="transaction.Status === 0">
+        <img src="img/rejected.png">
+        <div id="transaction-price" class="transaction-item-amount">Rejected.</div>
+      </div>
+    </div>
   </ion-content>
-
 </ion-view>
-
