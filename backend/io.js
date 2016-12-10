@@ -17,6 +17,10 @@ module.exports.createSocket = function (server) {
         socket.on('test', function(data){
             console.log(chalk.yellow("Socket event recieved. Emitting `test`. . . ", data))
             socket.emit('test', data);
+        });
+
+        socket.on('notification', function(data){
+            socket.emit('notification');
         })
 
     });

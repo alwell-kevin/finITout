@@ -96,7 +96,6 @@ angular.module('btford.socket-io', []).
             });
           }
         };
-
         return wrappedSocket;
       };
     }];
