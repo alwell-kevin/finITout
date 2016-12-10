@@ -1,7 +1,7 @@
 <ion-view title="Directory" id="page6">
   <ion-content padding="true" class="has-header">
     <div class="list">
-      <a ng-repeat="transaction in transactions" class="item item-thumbnail-center" href="#">
+      <a ng-repeat="transaction in transactions" class="item item-thumbnail-center">
         <img ng-show="transaction.approved" src="img/check.png">
         <img ng-hide="transaction.approved" src="img/ex.png">
         <div ng-click="getItem(transaction)" class="transaction-item">

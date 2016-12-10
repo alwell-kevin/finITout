@@ -56,6 +56,14 @@ angular.module('starter.controllers', [])
     $state.go("tab.details", transaction);
   }
 })
+  .controller('DetailsCtrl', function($scope,$state) {
+      $scope.hideTime = true;
+      $scope.data = {};
+      console.log($state.params.transaction);
+      $scope.transaction = $state.transaction;
+
+    }
+  )
 
 .controller('NewHomeCtrl', function($scope, $state) {
   $scope.goList = function() {
@@ -155,14 +163,7 @@ angular.module('starter.controllers', [])
     ];
     console.log("ending ChartCtrl");
   })
-  .controller('DetailsCtrl', function($scope) {
-    $scope.hideTime = true;
-    $scope.data = {};
-    console.log($stateParams.transaction);
-    $scope.transaction = $stateParams.transaction;
 
-  }
-)
-  
+
   .controller('ProfileCtrl', function($scope) {})
   .controller('CallCtrl', function($scope) {});
