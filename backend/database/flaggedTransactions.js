@@ -65,8 +65,9 @@ var matchTransaction = function(elderId, description, amount){
 
 }
 
-var updateTransaction = function(transactionId, status, notification, fraud){
-  var statement = "UPDATE flagTransaction SET Status = '"+status+"', Notification = '"+notification+"', Fraud = '"+fraud+"' WHERE `ID` = '"+transactionId+"'";
+var updateTransaction = function(transactionId, updatedFields){
+  var updateString = dao.buildUpdateString(updatedFields);
+  var statement = "UPDATE flagTransaction SET "+updateString+" WHERE `ID` = '"+transactionId+"'";
 
   return dao.query(statement, function(resolve, reject, rows){
     console.log(rows);

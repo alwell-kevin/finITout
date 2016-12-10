@@ -1,4 +1,5 @@
 var mysql      = require('mysql');
+var _ = require('underscore');
 
 var host = 'finitout.cqvdwglmsqny.us-east-1.rds.amazonaws.com';
 var user = 'finitout';
@@ -42,8 +43,20 @@ var query = function(statement, cb){
   });
   
 }
+//UPDATE `tablename` SET <updateString> WHERE `id` = '123'
+var buildUpdateString = function(attributes){
+  var updateStr = "";
+  _.each(attributes, function(val, key){
+    if(updateStr.length !== 0){
+      updateStr += ", "
+    }
+    updateStr += ' ' + key + ' = ' + (val==null?'NULL':'\''+val+'\'');
+  });
 
+  return updateStr
+}
 
 module.exports = {
-  query: query
+  query: query,
+  buildUpdateString: buildUpdateString
 }
