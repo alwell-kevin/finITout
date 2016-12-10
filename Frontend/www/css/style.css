@@ -137,3 +137,29 @@
   stroke-dasharray: 5,5;
 }
 
+/*Login *************************************/
+
+.action-btn{
+  border-color: transparent;
+  background-color: #0373BB;
+  color: #fff;
+}
+
+.hide-display{
+  display: none;
+}
+
+
+/* test-home full screen fix *************/
+
+.kill-scroll .scroll {
+  padding: 0 !important;
+  height: 100%;
+}
+
+.list.card.full {
+  margin: 0;
+  height: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+}

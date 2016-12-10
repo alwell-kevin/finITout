@@ -38,6 +38,23 @@ angular.module('starter.controllers', [])
     }
   })
 
+  .controller('LoginCtrl', function($scope, $state) {
+    $scope.data = {};
+    var navBar = angular.element( document.querySelector('ion-nav-bar'));
+    navBar.addClass('hide-display');
+
+    $scope.login = function() {
+      $state.go('tab.test');
+    }
+  })
+
+  .controller('NewHomeCtrl', function($scope,$state) {
+    $scope.searchnow = function() {
+      $state.go('tab.home');
+
+    }
+  })
+
   .controller('HomeCtrl', function($scope,$state) {
 
     $scope.data = {};
