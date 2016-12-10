@@ -1,17 +1,19 @@
 <ion-view hide-nav-bar="true" id="page6">
   <ion-content padding="true" class="has-header">
+    <div class="center">
+      <img id="login-img" src="img/logo.png">
+    </div>
     <div class="list card">
-      <a style="margin-top: 80%;" class="item">
-        <div class="center">
-          <img id="login-img" src="img/icon.png">
-        </div>
+      <a style="margin-top: 80px;" class="item">
         <div class="list list-inset">
-          <label class="item item-input">
-            <input autocomplete="off" type="text" placeholder="Username" ng-model="data.username">
-          </label>
-          <label class="item item-input">
-            <input type="password" placeholder="Password" ng-model="data.password">
-          </label>
+          <div class="input-credentials">
+            <label class="item item-input">
+              <input autocomplete="off" type="text" placeholder="Username" ng-model="data.username">
+            </label>
+            <label class="item item-input">
+              <input type="password" placeholder="Password" ng-model="data.password">
+            </label>
+          </div>
         </div>
         <button class="button button-block action-btn" ng-click="login()">Login</button>
       </a>
