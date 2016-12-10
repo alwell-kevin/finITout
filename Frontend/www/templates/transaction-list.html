@@ -5,7 +5,7 @@
 <!-- amount cateory description -->
 
       <div ng-repeat="transaction in transactions" >
-        <a  ng-click="getItem(transaction)" class="item item-thumbnail-center">
+        <a ng-click="getItem(transaction)" class="item item-thumbnail-center">
           <img ng-show="transaction.approved" src="img/check.png">
           <img ng-hide="transaction.approved" src="img/ex.png">
           <div class="transaction-item">
