@@ -15,7 +15,7 @@ angular.module('app.routes', [])
       url: '/login',
       templateUrl: 'templates/login.html',
       controller: 'LoginCtrl'
-    
+
   })
 
 .state('tab.home', {
@@ -74,16 +74,15 @@ angular.module('app.routes', [])
   }
 })
 .state('tab.details', {
-  url: '/details/:transaction',
+  url: '/details',
+  params: {
+    'obj': 'some default'
+  },
   views: {
     'tab-home': {
       templateUrl: 'templates/tab-details.html',
       controller: 'DetailsCtrl'
-    },
-      params: {
-        'key': 'some default',
-        'category': 'some default'
-      }
+    }
   }
 })
 
@@ -94,6 +93,9 @@ angular.module('app.routes', [])
       templateUrl: 'templates/tab-profile.html',
       controller: 'ProfileCtrl'
     }
+  },
+  params: {
+    'transaction': 'some default'
   }
 })
 .state('tab.call', {
