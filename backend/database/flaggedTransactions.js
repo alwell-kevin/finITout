@@ -1,18 +1,19 @@
 var _ = require('underscore');
 var dao = require('./dao');
+var uuid = require('uuid/v4');
 
 var defaults = {
   elderID: null,
   Description: null,
   Amount: null,
   Status: null,
-  Faud: null
+  Fraud: null
 }
 
 
 var addFlaggedTransaction = function(flaggedTransaction){
-  _.extend({}, defaults, flaggedTransaction);
-  var statement = "INSERT INTO `flagTransaction` (`elderID`, `Description`, `Amount`, `Status`, `Notification`, `Fraud`) VALUES ('"+flaggedTransaction.elderID+"', '"+flaggedTransaction.Description+"', '"+flaggedTransaction.Amount+"', '"+flaggedTransaction.Status+"', '"+flaggedTransaction.Notification+"', '"+flaggedTransaction.Fraud+"')"
+  _.extend({ID: uuid()}, defaults, flaggedTransaction);
+  var statement = "INSERT INTO `flagTransaction` (`ID`, `elderID`, `Description`, `Amount`, `Status`, `Notification`, `Fraud`) VALUES ('"+flaggedTransaction.ID+"', "+flaggedTransaction.elderID+"', '"+flaggedTransaction.Description+"', '"+flaggedTransaction.Amount+"', '"+flaggedTransaction.Status+"', '"+flaggedTransaction.Notification+"', '"+flaggedTransaction.Fraud+"')"
 
   dao.query(statement, function(resolve, reject, rows){
     console.log(rows);
@@ -64,11 +65,21 @@ var matchTransaction = function(elderId, description, amount){
 
 }
 
+var updateTransaction = function(transactionId, status, notification, fraud){
+  var statement = "UPDATE flagTransaction SET Status = '"+status+"', Notification = '"+notification+"', Fraud = '"+fraud+"' WHERE `ID` = '"+transactionId+"'";
+
+  return dao.query(statement, function(resolve, reject, rows){
+    console.log(rows);
+    resolve(rows);
+  });
+}
+
 
 module.exports = {
   addFlaggedTransaction: addFlaggedTransaction,
   getFlaggedTransactionsByElderId: getFlaggedTransactionsByElderId,
   getPendingFlaggedTransactions: getPendingFlaggedTransactions,
-  matchTransaction: matchTransaction
+  matchTransaction: matchTransaction,
+  updateTransaction: updateTransaction
 
 };
