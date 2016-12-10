@@ -6,10 +6,12 @@
         <img ng-hide="transaction.approved" src="img/ex.png">
         <div ng-click="getItem(transaction)" class="transaction-item">
         	<div class="transaction-item-amount">${{transaction.amount}}</div>
-          <h2>Pretty Hate Machine</h2>
-          <p class="transaction-item-subheader">Nine Inch Nails</p>
+          <h2>{{transaction.description}}</h2>
+          <p class="transaction-item-subheader">{{transaction.category}}</p>
         </div>
       </a>
     </div>
 </ion-view>
 </ion-content>
+
+<!-- amount cateory description -->
