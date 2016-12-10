@@ -149,7 +149,8 @@
   display: none;
 }
 
-/***/
+
+/**Transaction Details*/
 .details  {
   margin-left: 33%;
 }
@@ -158,5 +159,42 @@
   margin-right: 33%;
 }
 
+
+
+/*Transaction List*/
+
+img{
+  height: 64px;
+  width: 76px;
+  float: left;
+}
+
+.transaction-item{
+  margin-left: 25%;
+  margin-top: 12px;
+}
+
+.transaction-item-subheader{
+  margin-top: 5%;
+}
+
+.transaction-item-amount{
+  float: right;
+  font-size: xx-large;
+}
+
+/* test-home full screen fix *************/
+
+.kill-scroll .scroll {
+  padding: 0 !important;
+  height: 100%;
+}
+
+.list.card.full {
+  margin: 0;
+  height: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+}
 
 

@@ -1,5 +1,7 @@
 <ion-view view-title="Home"  hide-nav-bar="true" class="eventForm">
-
+  <div class="kill-scroll">
+    <ion-content class="">
+      <div class="list card full">
   <ion-content class="">
     <div class="list card">
       <div class="item text-center">
@@ -11,49 +13,52 @@
     </div>
     <div class="row eventTab">
       <div class="col col-50">
-        <div class="tabtext" ng-click="search()">
-          <a href="#/tab/home"><div class="icon"><i class="ion-ios-people"></i></div></a>
+        <div class="tabtext" ng-click="goList()">
+          <a><div class="icon"><i class="ion-ios-people"></i></div></a>
           <h3>View/Update Crowd Capacity</h3>
+
+            </div>
+          </div>
+          <div class="col col-50">
+            <div class="tabtext" ng-click="" >
+              <a href="#/tab/new"><div class="icon"><i class="ion-stats-bars"></i></div></a>
+              <h3>Analytics</h3>
+            </div>
+          </div>
+
         </div>
-      </div>
-      <div class="col col-50">
-        <div class="tabtext" ng-click="" >
-          <a href="#/tab/new"><div class="icon"><i class="ion-stats-bars"></i></div></a>
-          <h3>Analytics</h3>
+        <div class="row eventTab">
+          <div class="col col-50">
+            <div class="tabtext" ng-click="">
+              <a href="#/tab/chats"><div class="icon"><i class="ion-chatbubbles"></i></div></a>
+              <h3>Speak to Dexterous</h3>
+            </div>
+          </div>
+          <div class="col col-50">
+            <div class="tabtext" ng-click="">
+              <a href="#/tab/myqa"><div class="icon"><i class="ion-ios-help-outline"></i></div></a>
+              <h3>Guide</h3>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-    <div class="row eventTab">
-      <div class="col col-50">
-        <div class="tabtext" ng-click="">
-          <a href="#/tab/chats"><div class="icon"><i class="ion-chatbubbles"></i></div></a>
-          <h3>Speak to Dexterous</h3>
+        <div class="row eventTab">
+          <div class="col col-50">
+            <div class="tabtext dubble" ng-click="">
+              <a href="#/tab/top"><div class="icon"><i class="ion-flame"></i></div></a>
+              <h3>Hot-Spots</h3>
+            </div>
+          </div>
+          <div class="col col-50">
+            <div class="tabtext" ng-click="">
+              <a href="#/tab/call"><div class="icon"><i class="ion-ios-telephone"></i></div></a>
+              <h3>S.0.S</h3>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="col col-50">
-        <div class="tabtext" ng-click="">
-          <a href="#/tab/myqa"><div class="icon"><i class="ion-ios-help-outline"></i></div></a>
-          <h3>Guide</h3>
-        </div>
-      </div>
-    </div>
-    <div class="row eventTab">
-      <div class="col col-50">
-        <div class="tabtext dubble" ng-click="">
-          <a href="#/tab/top"><div class="icon"><i class="ion-flame"></i></div></a>
-          <h3>Hot-Spots</h3>
-        </div>
-      </div>
-      <div class="col col-50">
-        <div class="tabtext" ng-click="">
-          <a href="#/tab/call"><div class="icon"><i class="ion-ios-telephone"></i></div></a>
-          <h3>S.0.S</h3>
-        </div>
-      </div>
-    </div>
 
 
 
 
-  </ion-content>
+    </ion-content>
+  </div>
 </ion-view>
