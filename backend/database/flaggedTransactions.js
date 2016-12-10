@@ -6,7 +6,7 @@ var defaults = {
   Description: null,
   Amount: null,
   Status: null,
-  Faud: null
+  Fraud: null
 }
 
 
@@ -64,11 +64,21 @@ var matchTransaction = function(elderId, description, amount){
 
 }
 
+var updateTransaction = function(transactionId, status, notification, fraud){
+  var statement = "UPDATE flagTransaction SET Status = '"+status+"', Notification = '"+notification+"', Fraud = '"+fraud+"' WHERE `ID` = '"+transactionId+"'";
+
+  return dao.query(statement, function(resolve, reject, rows){
+    console.log(rows);
+    resolve(rows);
+  });
+}
+
 
 module.exports = {
   addFlaggedTransaction: addFlaggedTransaction,
   getFlaggedTransactionsByElderId: getFlaggedTransactionsByElderId,
   getPendingFlaggedTransactions: getPendingFlaggedTransactions,
-  matchTransaction: matchTransaction
+  matchTransaction: matchTransaction,
+  updateTransaction: updateTransaction
 
 };
