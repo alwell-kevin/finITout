@@ -74,6 +74,9 @@ var post = function(host, path, body) {
           });
       });
       if(body != null){
+        req.on('error', (e) => {
+          console.error(e);
+        });
         req.write(req.stringify(body));
       }
       req.end();
@@ -95,18 +98,29 @@ var post = function(host, path, body) {
 
 
 var getTokenResponse = function(response){
-  console.log(response.body);
   token = 'tsec '+response.body.access_token;
   //token lasts about 2 hours. Lets reset it when we're close
   setTimeout(function(){token = null;}, 7000);
 }
 
-
+var apiHost = 'sandbox-apis.bbvacompass.com';
 
 module.exports = {
-  test: function(){
-    get('sandbox-apis.bbvacompass.com', '/api/v2/users/dd22e9d5-e362-46ff-86aa-a42b49315e51').then(function(response){
-      console.log(response);
-    });
+  getUser: function(userId){
+    return get(apiHost, '/api/v2/users/'+userId);
+  },
+  getAccounts: function(userId) {
+    return get(apiHost, '/api/v2/users/'+userId+'/accounts');
+  },
+  getAccountDetail: function(userId, accountId){
+    return get(apiHost, '/api/v2/users/'+userId+'/accounts/'+accountId);
+  },
+  getAccountTransactions: function(userId, accountId){
+    return get(apiHost, '/api/v2/users/'+userId+'/accounts/'+accountId+'/transactions');
+  },
+  postAccountTransaction: function(userId, accountId, transaction){
+    return post(apiHost, '/api/v2/users/'+userId+'/accounts/'+accountId+'/transactions', transaction);
   }
 };
+
+
