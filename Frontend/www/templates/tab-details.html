@@ -17,7 +17,8 @@
       </label>
     <label class="item item-input">
       <span class="input-label">Status</span>
-      <div class="details">{{transaction.status}}</div>
+      <div class="details" ng-if="transaction.approved">Approved</div>
+      <div class="details" ng-if="!transaction.approved">Rejected</div>
     </label>
     <label class="item item-input">
       <span class="input-label" >Date</span>

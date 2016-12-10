@@ -53,14 +53,14 @@ angular.module('starter.controllers', [])
   $scope.transactions = [{ category: 'cream cheese', id: 234234234, date: "01/27/92", approved: false, amount: 9999, description: "this is a description" }, { category: 'cream cheese', id: 234234234, date: "01/27/92", approved: false, amount: 9999, description: "this is a description" }, { category: 'cream cheese', id: 234234234, date: "01/27/92", approved: false, amount: 9999, description: "this is a description" }, { category: 'cream cheese', id: 234234234, date: "01/27/92", approved: true, amount: 9999, description: "this is a description" }, { category: 'cream cheese', id: 234234234, date: "01/27/92", approved: true, amount: 9999, description: "this is a description" },{ category: 'cream cheese', id: 234234234, date: "01/27/92", approved: false, amount: 9999, description: "this is a description" }, { category: 'cream cheese', id: 234234234, date: "01/27/92", approved: false, amount: 9999, description: "this is a description" }, { category: 'cream cheese', id: 234234234, date: "01/27/92", approved: true, amount: 9999, description: "this is a description" }, { category: 'cream cheese', id: 234234234, date: "01/27/92", approved: false, amount: 9999, description: "this is a description" }, { category: 'cream cheese', id: 234234234, date: "01/27/92", approved: false, amount: 9999, description: "this is a description" },{ category: 'cream cheese', id: 234234234, date: "01/27/92", approved: false, amount: 9999, description: "this is a description" }, { category: 'cream cheese', id: 234234234, date: "01/27/92", approved: false, amount: 9999, description: "this is a description" }, { category: 'cream cheese', id: 234234234, date: "01/27/92", approved: false, amount: 9999, description: "this is a description" }, { category: 'cream cheese', id: 234234234, date: "01/27/92", approved: true, amount: 9999, description: "this is a description" }, { category: 'cream cheese', id: 234234234, date: "01/27/92", approved: false, amount: 9999, description: "this is a description" }];
 
   $scope.getItem = function(transaction){
-    $state.go("tab.details", transaction);
+    $state.go("tab.details", {obj:transaction});
   }
 })
   .controller('DetailsCtrl', function($scope,$state) {
       $scope.hideTime = true;
-      $scope.data = {};
-      console.log($state.params.transaction);
-      $scope.transaction = $state.transaction;
+      $scope.transaction = {};
+      console.log($state.params.obj);
+      $scope.transaction = $state.params.obj;
 
     }
   )
