@@ -30,6 +30,17 @@ angular.module('app.routes', [])
     }
   }
 })
+
+.state('tab.transactionlist', {
+  url: '/transactionlist',
+  views: {
+    'tab-profile': {
+      templateUrl: 'templates/transaction-list.html',
+      controller: 'TransactionCtrl'
+    }
+  }
+})
+
 .state('tab.test', {
   url: '/test',
   views: {
@@ -90,6 +101,5 @@ angular.module('app.routes', [])
   }
 })
 
-$urlRouterProvider.otherwise('/login');
-
+$urlRouterProvider.otherwise('/tab/test');
 });
