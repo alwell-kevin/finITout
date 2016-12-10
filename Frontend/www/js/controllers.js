@@ -153,6 +153,9 @@ angular.module('starter.controllers', [])
   })
   .controller('DetailsCtrl', function($scope) {
     $scope.hideTime = true;
+    $scope.data = {};
+    console.log($stateParams.transaction);
+    $scope.transaction = $stateParams.transaction;
 
   }
 )
