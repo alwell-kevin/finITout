@@ -48,16 +48,32 @@ angular.module('starter.controllers', [])
 
 .controller('TransactionCtrl', function($scope, $state,$ionicPopup,TransactionService) {
   $scope.data = {};
-  $scope.transactions = [{ elderID: 234234234, timestamp: "01/27/92", Status: 0, Amount: 9999, Description: "Status is false", Notification: 0, Fraud:0 },
-    { elderID: 234234234, timestamp: "01/27/92", Status: 1, Amount: 9999, Description: "this is approved", Notification: 0, Fraud:0 },
-    { elderID: 234234234, timestamp: "01/27/92", Status: null, Amount: 9999, Description: "Has no status is pending", Notification: 0, Fraud:0 },
-    { elderID: 234234234, timestamp: "01/27/92", Status: true, Amount: 9999, Description: "this is a Description", Notification: 0, Fraud:0 }, { elderID: 234234234, timestamp: "01/27/92", Status: true, Amount: 9999, Description: "this is a Description", Notification: 0, Fraud:0 }, { elderID: 234234234, timestamp: "01/27/92", Status: 0, Amount: 9999, Description: "this is a Description", Notification: 0, Fraud:0 }, { elderID: 234234234, timestamp: "01/27/92", Status: 0, Amount: 9999, Description: "this is a Description", Notification: 0, Fraud:0 }, { elderID: 234234234, timestamp: "01/27/92", Status: true, Amount: 9999, Description: "this is a Description", Notification: 0, Fraud:0 }, { elderID: 234234234, timestamp: "01/27/92", Status: 1, Amount: 9999, Description: "this is a Description", Notification: 0, Fraud:0 }, { elderID: 234234234, timestamp: "01/27/92", Status: 0, Amount: 9999, Description: "this is a Description", Notification: 0, Fraud:0 }, { elderID: 234234234, timestamp: "01/27/92", Status: 0, Amount: 9999, Description: "this is a Description", Notification: 0, Fraud:0 }, { elderID: 234234234, timestamp: "01/27/92", Status: 1, Amount: 9999, Description: "this is a Description", Notification: 0, Fraud:0 }, { elderID: 234234234, timestamp: "01/27/92", Status: 0, Amount: 9999, Description: "this is a Description", Notification: 0, Fraud:0 }, { elderID: 234234234, timestamp: "01/27/92", Status: true, Amount: 9999, Description: "this is a Description", Notification: 0, Fraud:0 }, { elderID: 234234234, timestamp: "01/27/92", Status: 0, Amount: 9999, Description: "this is a Description", Notification: 0, Fraud:0 }];
+  $scope.transactions = [];
+
   var promise = TransactionService.get();
   promise.then(
     function(data){
       $scope.transactions = data;
       console.log("got updated data");
       console.log( $scope.transactions );
+
+      var socket = io.connect("http://localhost:3001"); 
+      socket.on("notification", function(notification) {
+      
+
+          $ionicPopup.alert({ title: 'New Anomaly Detected'});
+          var promise = TransactionService.get();
+          promise.then( function(data){
+              $scope.transactions = data;
+              console.log("got updated alert and updated list transaction data");
+              console.log( $scope.transactions );
+            },
+            function(error){
+              console.log(error); 
+            } );
+
+
+      } );
     },
     function(error){
       console.log(error);
@@ -67,7 +83,7 @@ angular.module('starter.controllers', [])
     $state.go("tab.details", {obj:transaction});
   }
 })
-  .controller('DetailsCtrl', function($scope,$state,$ionicPopup,$location) {
+  .controller('DetailsCtrl', function($scope,$state,$ionicPopup,$location,TransactionService) {
       $scope.hideTime = true;
       $scope.transaction = {};
 
@@ -144,20 +160,20 @@ angular.module('starter.controllers', [])
 
 .controller('HomeCtrl', function($scope, $state) {
 
-  $scope.data = {};
+ /* $scope.data = {};
 
   $scope.searchNow = function() {
     console.log("key " + $scope.data.key);
     console.log("category " + $scope.data.category);
     $state.go('tab.home-search', { key: $scope.data.key, category: $scope.data.category });
     console.log("ended");
-  }
+  }*/
 })
 
 .controller('IotCtrl', function($scope, $q, $location, $state, $stateParams, $ionicPopup, $ionicLoading, IotService) {
 
 
-  var promise = IotService.all($state.params.key, $state.params.category, "true");
+ /* var promise = IotService.all($state.params.key, $state.params.category, "true");
   promise.then(
     function(payload) {
       console.log("all ");
@@ -170,12 +186,12 @@ angular.module('starter.controllers', [])
     function(errorPayload) {
       console.log(errorPayload);
     }
-  );
+  );*/
 })
 
 .controller('ChartCtrl', function($scope) {
     console.log("inside ChartCtrl");
-    $scope.vm = {};
+   /* $scope.vm = {};
     $scope.vm.options = {};
     $scope.vm.data = {};
     $scope.data1 = [];
@@ -231,7 +247,7 @@ angular.module('starter.controllers', [])
 
       }
 
-    ];
+    ];*/
     console.log("ending ChartCtrl");
   })
 

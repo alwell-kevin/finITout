@@ -45,8 +45,21 @@ angular.module('starter.services',[])
         console.log("parameters", body);
         console.log("ID", ID);
         var deferred = $q.defer();
-        const headers = new Headers({'Content-Type': 'application/json'});
-        http.post('http://localhost:3001/api/transaction/'+ID, body, {headers: headers}).success(function(data){
+       /* const headers = new Headers({
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Headers': 'X-Requested-With'});*/
+        $http.defaults.headers.post['Content-Type'] = 'application/json';
+        //$http.defaults.headers.post['Access-Control-Allow-Headers'] = 'X-Requested-With';
+       /* $http({method: 'POST',
+          url: 'http://localhost:3001/api/transaction',
+          headers: {
+          'Content-Type': 'application/json',
+            'Access-Control-Allow-Headers': 'X-Requested-With'
+        },
+        data: body
+      })*/
+        $http.post('http://localhost:3001/api/transaction/'+ID, body)
+        .success(function(data){
           deferred.resolve(data);
         })
           .error(function(msg,code){
