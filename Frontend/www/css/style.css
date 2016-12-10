@@ -278,7 +278,7 @@ img {
 }
 
 #transaction-price {
-  margin-top: 18px;
+  color: white;
 }
 
 .transaction-item h2 {
@@ -298,6 +298,7 @@ img {
 .transaction-item-amount {
   float: right;
   font-size: xx-large;
+  margin-top: 18px;
 }
 
 
