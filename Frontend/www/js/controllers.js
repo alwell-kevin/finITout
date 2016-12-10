@@ -46,12 +46,23 @@ angular.module('starter.controllers', [])
   }
 })
 
-.controller('TransactionCtrl', function($scope, $state,$ionicPopup) {
+.controller('TransactionCtrl', function($scope, $state,$ionicPopup,TransactionService) {
   $scope.data = {};
   $scope.transactions = [{ elderID: 234234234, timestamp: "01/27/92", Status: 0, Amount: 9999, Description: "Status is false", Notification: 0, Fraud:0 },
     { elderID: 234234234, timestamp: "01/27/92", Status: 1, Amount: 9999, Description: "this is approved", Notification: 0, Fraud:0 },
     { elderID: 234234234, timestamp: "01/27/92", Status: null, Amount: 9999, Description: "Has no status is pending", Notification: 0, Fraud:0 },
     { elderID: 234234234, timestamp: "01/27/92", Status: true, Amount: 9999, Description: "this is a Description", Notification: 0, Fraud:0 }, { elderID: 234234234, timestamp: "01/27/92", Status: true, Amount: 9999, Description: "this is a Description", Notification: 0, Fraud:0 }, { elderID: 234234234, timestamp: "01/27/92", Status: 0, Amount: 9999, Description: "this is a Description", Notification: 0, Fraud:0 }, { elderID: 234234234, timestamp: "01/27/92", Status: 0, Amount: 9999, Description: "this is a Description", Notification: 0, Fraud:0 }, { elderID: 234234234, timestamp: "01/27/92", Status: true, Amount: 9999, Description: "this is a Description", Notification: 0, Fraud:0 }, { elderID: 234234234, timestamp: "01/27/92", Status: 1, Amount: 9999, Description: "this is a Description", Notification: 0, Fraud:0 }, { elderID: 234234234, timestamp: "01/27/92", Status: 0, Amount: 9999, Description: "this is a Description", Notification: 0, Fraud:0 }, { elderID: 234234234, timestamp: "01/27/92", Status: 0, Amount: 9999, Description: "this is a Description", Notification: 0, Fraud:0 }, { elderID: 234234234, timestamp: "01/27/92", Status: 1, Amount: 9999, Description: "this is a Description", Notification: 0, Fraud:0 }, { elderID: 234234234, timestamp: "01/27/92", Status: 0, Amount: 9999, Description: "this is a Description", Notification: 0, Fraud:0 }, { elderID: 234234234, timestamp: "01/27/92", Status: true, Amount: 9999, Description: "this is a Description", Notification: 0, Fraud:0 }, { elderID: 234234234, timestamp: "01/27/92", Status: 0, Amount: 9999, Description: "this is a Description", Notification: 0, Fraud:0 }];
+  var promise = TransactionService.get();
+  promise.then(
+    function(data){
+      $scope.transactions = data;
+      console.log("got updated data");
+      console.log( $scope.transactions );
+    },
+    function(error){
+      console.log(error);
+    }
+  );
   $scope.getItem = function(transaction){
     $state.go("tab.details", {obj:transaction});
   }
@@ -67,29 +78,55 @@ angular.module('starter.controllers', [])
         if(value){
           $ionicPopup.alert({
             title: 'Transaction Approved',
-            template: '<ion-checkbox ng-model="userResponse.Notification"><small>Do you want to be notified if this reoccurs?</small></ion-checkbox>'
+            template: '<ion-checkbox ng-model="userResponse.Notification"><small>Do you want to be notified if this reoccurs?</small></ion-checkbox>',
             scope: $scope
           }).then(function(res){
-            console.log($scope.userResponse);
-            console.log($scope.userResponse.Notification);
             userResponse ={
-              Status: 1
+              Status:value ? 1:0,
+              Notification: $scope.userResponse.Notification ? 1:0
             };
-            $location.path("/tab/transactionlist");
+            console.log("accepted response is");
+            console.log(userResponse);
+            console.log($scope.transaction.ID);
+            var promise = TransactionService.post($scope.transaction.ID,userResponse);
+            promise.then(
+              function(data){
+                console.log("data posted");
+
+                $location.path("/tab/transactionlist");
+              },
+              function(error){
+                console.log(error);
+              }
+            );
+
           });
 
         }
         else{
           $ionicPopup.alert({
             title: 'Transaction Rejected',
-            template: '<ion-checkbox ng-model="userResponse.Fraud">Mark as Fraud if reoccurs?</ion-checkbox>'
+            template: '<ion-checkbox ng-model="userResponse.Fraud">Mark as Fraud if reoccurs?</ion-checkbox>',
+            scope: $scope
           }).then(function(res){
-
-            console.log($scope.userResponse.Fraud);
             userResponse ={
-              Status: 0
+              Status:value ? 1:0,
+              Fraud: $scope.userResponse.Fraud ? 1:0
             };
-            $location.path("/tab/transactionlist");
+            console.log("rejected response is ");
+            console.log(userResponse);
+            console.log($scope.transaction.ID);
+            var promise = TransactionService.post($scope.transaction.ID,$scope.userResponse);
+            promise.then(
+              function(data){
+                console.log("data posted");
+                $location.path("/tab/transactionlist");
+              },
+              function(error){
+                console.log(error);
+              }
+            );
+
           });
 
         }
