@@ -269,9 +269,16 @@ img {
 }
 
 .transaction-item {
-  margin-left: 25%;
-  margin-top: 12px;
   color: white;
+}
+
+#transaction-image {
+  float: left;
+  margin-right: 10px;
+}
+
+#transaction-price {
+  margin-top: 18px;
 }
 
 .transaction-item h2 {
