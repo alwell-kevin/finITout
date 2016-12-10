@@ -79,9 +79,14 @@ angular.module('app.routes', [])
     'tab-home': {
       templateUrl: 'templates/tab-details.html',
       controller: 'DetailsCtrl'
-    }
+    },
+      params: {
+        'key': 'some default',
+        'category': 'some default'
+      }
   }
 })
+
 .state('tab.profile', {
   url: '/profile',
   views: {
