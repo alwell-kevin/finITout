@@ -14,12 +14,25 @@ router.get('/:elderId', function (req, res) {
         })
 });
 
+router.post('/:transactionId', function(req, res) {
+    return transactions.updateTransaction(req.params.transactionId, req.body)
+        .then(data => res.status(200).send(data));
+})
+
 router.post('/:transactionId/approve', function (req, res) {
-    res.status(200).send("this would be the approved thing");
+    return transactions.updateTransaction(req.params.transactionId, {"Status": 1 })
+        .then(data => {
+            console.log("the update ", data);
+            res.status(200).send(data);
+        });
 });
 
 router.post('/:transactionId/reject', function (req, res) {
-    res.status(200).send("this would be where you reject");
+    return transactions.updateTransaction(req.params.transactionId, {"Status": 0 })
+        .then(data => {
+            console.log("the update ", data);
+            res.status(200).send(data);
+        });
 });
 
 module.exports = router;
