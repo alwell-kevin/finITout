@@ -1,0 +1,12 @@
+root = true
+
+[*]
+end_of_line = lf
+indent_style = space
+insert_final_new_line = true
+
+[*{css,scss,sass,js,ts,html,htm}]
+indent_size = 4
+
+[*.json]
+indent_size = 2
