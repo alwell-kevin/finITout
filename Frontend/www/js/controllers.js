@@ -40,15 +40,15 @@ angular.module('starter.controllers', [])
 
 .controller('LoginCtrl', function($scope, $state) {
   $scope.data = {};
-  var navBar = angular.element(document.querySelector('ion-nav-bar'));
-  navBar.addClass('hide-display');
+  /*var navBar = angular.element(document.querySelector('ion-nav-bar'));
+  navBar.addClass('hide-display');*/
 
   $scope.login = function() {
     $state.go('tab.test');
   }
 })
 
-.controller('TransactionCtrl', function($scope, $state) {
+.controller('TransactionCtrl', function($scope, $state,$ionicPopup) {
   $scope.data = {};
   $scope.transactions = [{ category: 'cream cheese', id: 234234234, date: "01/27/92", approved: false, amount: 9999, description: "this is a description" }, { category: 'cream cheese', id: 234234234, date: "01/27/92", approved: false, amount: 9999, description: "this is a description" }, { category: 'cream cheese', id: 234234234, date: "01/27/92", approved: false, amount: 9999, description: "this is a description" }, { category: 'cream cheese', id: 234234234, date: "01/27/92", approved: true, amount: 9999, description: "this is a description" }, { category: 'cream cheese', id: 234234234, date: "01/27/92", approved: true, amount: 9999, description: "this is a description" },{ category: 'cream cheese', id: 234234234, date: "01/27/92", approved: false, amount: 9999, description: "this is a description" }, { category: 'cream cheese', id: 234234234, date: "01/27/92", approved: false, amount: 9999, description: "this is a description" }, { category: 'cream cheese', id: 234234234, date: "01/27/92", approved: true, amount: 9999, description: "this is a description" }, { category: 'cream cheese', id: 234234234, date: "01/27/92", approved: false, amount: 9999, description: "this is a description" }, { category: 'cream cheese', id: 234234234, date: "01/27/92", approved: false, amount: 9999, description: "this is a description" },{ category: 'cream cheese', id: 234234234, date: "01/27/92", approved: false, amount: 9999, description: "this is a description" }, { category: 'cream cheese', id: 234234234, date: "01/27/92", approved: false, amount: 9999, description: "this is a description" }, { category: 'cream cheese', id: 234234234, date: "01/27/92", approved: false, amount: 9999, description: "this is a description" }, { category: 'cream cheese', id: 234234234, date: "01/27/92", approved: true, amount: 9999, description: "this is a description" }, { category: 'cream cheese', id: 234234234, date: "01/27/92", approved: false, amount: 9999, description: "this is a description" }];
 
@@ -56,11 +56,25 @@ angular.module('starter.controllers', [])
     $state.go("tab.details", {obj:transaction});
   }
 })
-  .controller('DetailsCtrl', function($scope,$state) {
+  .controller('DetailsCtrl', function($scope,$state,$ionicPopup) {
       $scope.hideTime = true;
       $scope.transaction = {};
       console.log($state.params.obj);
       $scope.transaction = $state.params.obj;
+      $scope.decision = function(value){
+
+        if(value){
+          $ionicPopup.alert({
+            title: 'Transaction Approved',
+          });
+        }
+        else{
+          $ionicPopup.alert({
+            title: 'Transaction Rejected',
+          });
+        }
+
+      }
 
     }
   )
