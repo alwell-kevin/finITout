@@ -1,0 +1,59 @@
+
+
+<ion-view title="Detailed View" id="page7">
+  <ion-content padding="true" class="has-header">
+    <!--<div class="card">
+    <label class="item item-input">
+      <span class="input-label">Description</span>
+      <div class="details">{{transaction.description}}</div>
+    </label>
+    <label class="item item-input">
+      <span class="input-label">Category</span>
+      <div class="details">{{transaction.category}}</div>
+    </label>
+      <label class="item item-input">
+        <span class="input-label">Amount</span>
+        <div class="details">{{transaction.amount}}</div>
+      </label>
+    <label class="item item-input">
+      <span class="input-label">Status</span>
+      <div class="details" ng-if="transaction.approved">Approved</div>
+      <div class="details" ng-if="!transaction.approved">Rejected</div>
+    </label>
+    <label class="item item-input">
+      <span class="input-label" >Date</span>
+      <div class="details">{{transaction.date}}</div>
+    </label>
+      </div>-->
+    <div class="list">
+      <div class="item">
+        <h3>Description</h3>
+        <p>{{transaction.description}}</p>
+      </div>
+      <div class="item">
+        <h3>Category</h3>
+        <p>{{transaction.category}}</p>
+      </div>
+      <div class="item">
+        <h3>Amount</h3>
+        <p>{{transaction.amount}}</p>
+      </div>
+      <div class="item">
+        <h3>Date</h3>
+        <p>{{transaction.date}}</p>
+      </div>
+    </div>
+    <br>
+    <div class="row no-padding">
+      <div class="col no-padding">
+        <button class="button button-full button-balanced" ng-click="decision(true)">Approve</button>
+      </div>
+      <div class="col no-padding">
+        <button class="button button-full button-assertive " ng-click="decision(false)">Reject</button>
+      </div>
+    </div>
+
+  </ion-content>
+
+</ion-view>
+

@@ -15,7 +15,7 @@ angular.module('app.routes', [])
       url: '/login',
       templateUrl: 'templates/login.html',
       controller: 'LoginCtrl'
-    
+
   })
 
 .state('tab.home', {
@@ -30,6 +30,17 @@ angular.module('app.routes', [])
     }
   }
 })
+
+.state('tab.transactionlist', {
+  url: '/transactionlist',
+  views: {
+    'tab-home': {
+      templateUrl: 'templates/transaction-list.html',
+      controller: 'TransactionCtrl'
+    }
+  }
+})
+
 .state('tab.test', {
   url: '/test',
   views: {
@@ -62,21 +73,15 @@ angular.module('app.routes', [])
     }
   }
 })
-.state('tab.chats', {
-  url: '/chats',
+.state('tab.details', {
+  url: '/details',
+  params: {
+    'obj': 'some default'
+  },
   views: {
     'tab-home': {
-      templateUrl: 'templates/tab-chats.html',
-      controller: 'ChatCtrl'
-    }
-  }
-})
-.state('tab.profile', {
-  url: '/profile',
-  views: {
-    'tab-profile': {
-      templateUrl: 'templates/tab-profile.html',
-      controller: 'ProfileCtrl'
+      templateUrl: 'templates/tab-details.html',
+      controller: 'DetailsCtrl'
     }
   }
 })
@@ -90,6 +95,8 @@ angular.module('app.routes', [])
   }
 })
 
+
 $urlRouterProvider.otherwise('/login');
 
 });
+
