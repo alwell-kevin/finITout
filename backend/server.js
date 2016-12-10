@@ -28,7 +28,7 @@ server.use('/api', require('./api'));
 server.post('/notification', function (req, res) {
    var socket = io.getSocket().main;
    socket.emit('notification');
-   req.status(200).send();
+   res.status(200).send();
 });
 
 server.get('/', function (req, res) {
