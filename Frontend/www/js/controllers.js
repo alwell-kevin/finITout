@@ -155,7 +155,7 @@ angular.module('starter.controllers', [])
     ];
     console.log("ending ChartCtrl");
   })
-  .controller('DetailsCtrl', function($scope) {
+  .controller('DetailsCtrl', function($scope, $stateParams) {
     $scope.hideTime = true;
     $scope.data = {};
     console.log($stateParams.transaction);
