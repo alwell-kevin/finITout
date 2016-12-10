@@ -28,19 +28,15 @@
     <div class="list">
       <div id="item-details" class="item">
         <h3>Description</h3>
-        <p>{{transaction.description}}</p>
-      </div>
-      <div id="item-details" class="item">
-        <h3>Category</h3>
-        <p>{{transaction.category}}</p>
+        <p>{{transaction.Description}}</p>
       </div>
       <div id="item-details" class="item">
         <h3>Amount</h3>
-        <p>${{transaction.amount}}</p>
+        <p>${{transaction.Amount}}</p>
       </div>
       <div id="item-details" class="item">
         <h3>Date</h3>
-        <p>{{transaction.date}}</p>
+        <p>{{transaction['Date'] | date}}</p>
       </div>
     </div>
     <br>

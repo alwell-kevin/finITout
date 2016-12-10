@@ -359,3 +359,7 @@ scroll-bar {
 .button {
   border-radius: 0px;
 }
+
+button{
+  font-weight: bold;
+}
