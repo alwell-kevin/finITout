@@ -1,5 +1,6 @@
 var _ = require('underscore');
 var dao = require('./dao');
+var uuid = require('uuid/v4');
 
 var defaults = {
   elderID: null,
@@ -11,8 +12,8 @@ var defaults = {
 
 
 var addFlaggedTransaction = function(flaggedTransaction){
-  _.extend({}, defaults, flaggedTransaction);
-  var statement = "INSERT INTO `flagTransaction` (`elderID`, `Description`, `Amount`, `Status`, `Notification`, `Fraud`) VALUES ('"+flaggedTransaction.elderID+"', '"+flaggedTransaction.Description+"', '"+flaggedTransaction.Amount+"', '"+flaggedTransaction.Status+"', '"+flaggedTransaction.Notification+"', '"+flaggedTransaction.Fraud+"')"
+  _.extend({ID: uuid()}, defaults, flaggedTransaction);
+  var statement = "INSERT INTO `flagTransaction` (`ID`, `elderID`, `Description`, `Amount`, `Status`, `Notification`, `Fraud`) VALUES ('"+flaggedTransaction.ID+"', "+flaggedTransaction.elderID+"', '"+flaggedTransaction.Description+"', '"+flaggedTransaction.Amount+"', '"+flaggedTransaction.Status+"', '"+flaggedTransaction.Notification+"', '"+flaggedTransaction.Fraud+"')"
 
   dao.query(statement, function(resolve, reject, rows){
     console.log(rows);
