@@ -20,7 +20,8 @@ server.use(function (req, res, next) {
     next();
 });
 
-server.use('/user', require('./api/user'));
+
+server.use('/api', require('./api'));
 
 server.get('/', function (req, res) {
     res.status(200).send('hello from the server!;');
