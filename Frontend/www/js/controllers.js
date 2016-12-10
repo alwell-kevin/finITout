@@ -48,8 +48,10 @@ angular.module('starter.controllers', [])
 
 .controller('TransactionCtrl', function($scope, $state,$ionicPopup) {
   $scope.data = {};
-  $scope.transactions = [{ category: 'cream cheese', id: 234234234, date: "01/27/92", approved: false, amount: 9999, description: "this is a description" }, { category: 'cream cheese', id: 234234234, date: "01/27/92", approved: false, amount: 9999, description: "this is a description" }, { category: 'cream cheese', id: 234234234, date: "01/27/92", approved: false, amount: 9999, description: "this is a description" }, { category: 'cream cheese', id: 234234234, date: "01/27/92", approved: true, amount: 9999, description: "this is a description" }, { category: 'cream cheese', id: 234234234, date: "01/27/92", approved: true, amount: 9999, description: "this is a description" },{ category: 'cream cheese', id: 234234234, date: "01/27/92", approved: false, amount: 9999, description: "this is a description" }, { category: 'cream cheese', id: 234234234, date: "01/27/92", approved: false, amount: 9999, description: "this is a description" }, { category: 'cream cheese', id: 234234234, date: "01/27/92", approved: true, amount: 9999, description: "this is a description" }, { category: 'cream cheese', id: 234234234, date: "01/27/92", approved: false, amount: 9999, description: "this is a description" }, { category: 'cream cheese', id: 234234234, date: "01/27/92", approved: false, amount: 9999, description: "this is a description" },{ category: 'cream cheese', id: 234234234, date: "01/27/92", approved: false, amount: 9999, description: "this is a description" }, { category: 'cream cheese', id: 234234234, date: "01/27/92", approved: false, amount: 9999, description: "this is a description" }, { category: 'cream cheese', id: 234234234, date: "01/27/92", approved: false, amount: 9999, description: "this is a description" }, { category: 'cream cheese', id: 234234234, date: "01/27/92", approved: true, amount: 9999, description: "this is a description" }, { category: 'cream cheese', id: 234234234, date: "01/27/92", approved: false, amount: 9999, description: "this is a description" }];
-
+  $scope.transactions = [{ elderID: 234234234, timestamp: "01/27/92", Status: 0, Amount: 9999, Description: "Status is false", Notification: 0, Fraud:0 },
+    { elderID: 234234234, timestamp: "01/27/92", Status: 1, Amount: 9999, Description: "this is approved", Notification: 0, Fraud:0 },
+    { elderID: 234234234, timestamp: "01/27/92", Status: null, Amount: 9999, Description: "Has no status is pending", Notification: 0, Fraud:0 },
+    { elderID: 234234234, timestamp: "01/27/92", Status: true, Amount: 9999, Description: "this is a Description", Notification: 0, Fraud:0 }, { elderID: 234234234, timestamp: "01/27/92", Status: true, Amount: 9999, Description: "this is a Description", Notification: 0, Fraud:0 }, { elderID: 234234234, timestamp: "01/27/92", Status: 0, Amount: 9999, Description: "this is a Description", Notification: 0, Fraud:0 }, { elderID: 234234234, timestamp: "01/27/92", Status: 0, Amount: 9999, Description: "this is a Description", Notification: 0, Fraud:0 }, { elderID: 234234234, timestamp: "01/27/92", Status: true, Amount: 9999, Description: "this is a Description", Notification: 0, Fraud:0 }, { elderID: 234234234, timestamp: "01/27/92", Status: 1, Amount: 9999, Description: "this is a Description", Notification: 0, Fraud:0 }, { elderID: 234234234, timestamp: "01/27/92", Status: 0, Amount: 9999, Description: "this is a Description", Notification: 0, Fraud:0 }, { elderID: 234234234, timestamp: "01/27/92", Status: 0, Amount: 9999, Description: "this is a Description", Notification: 0, Fraud:0 }, { elderID: 234234234, timestamp: "01/27/92", Status: 1, Amount: 9999, Description: "this is a Description", Notification: 0, Fraud:0 }, { elderID: 234234234, timestamp: "01/27/92", Status: 0, Amount: 9999, Description: "this is a Description", Notification: 0, Fraud:0 }, { elderID: 234234234, timestamp: "01/27/92", Status: true, Amount: 9999, Description: "this is a Description", Notification: 0, Fraud:0 }, { elderID: 234234234, timestamp: "01/27/92", Status: 0, Amount: 9999, Description: "this is a Description", Notification: 0, Fraud:0 }];
   $scope.getItem = function(transaction){
     $state.go("tab.details", {obj:transaction});
   }
@@ -57,21 +59,39 @@ angular.module('starter.controllers', [])
   .controller('DetailsCtrl', function($scope,$state,$ionicPopup,$location) {
       $scope.hideTime = true;
       $scope.transaction = {};
+
       console.log($state.params.obj);
       $scope.transaction = $state.params.obj;
       $scope.decision = function(value){
-
+        $scope.userResponse = {};
         if(value){
           $ionicPopup.alert({
             title: 'Transaction Approved',
+            template: '<ion-checkbox ng-model="userResponse.Notification"><small>Do you want to be notified if this reoccurs?</small></ion-checkbox>'
+            scope: $scope
+          }).then(function(res){
+            console.log($scope.userResponse);
+            console.log($scope.userResponse.Notification);
+            userResponse ={
+              Status: 1
+            };
+            $location.path("/tab/transactionlist");
           });
-          $location.path("/tab/transactionlist");
+
         }
         else{
           $ionicPopup.alert({
             title: 'Transaction Rejected',
+            template: '<ion-checkbox ng-model="userResponse.Fraud">Mark as Fraud if reoccurs?</ion-checkbox>'
+          }).then(function(res){
+
+            console.log($scope.userResponse.Fraud);
+            userResponse ={
+              Status: 0
+            };
+            $location.path("/tab/transactionlist");
           });
-          $location.path("/tab/transactionlist");
+
         }
 
       }
