@@ -117,7 +117,11 @@
 
 .scroll {
   padding: 10px 0 50px !important;
-  background: url("../img/background.png");
+  background: url("../img/background.png") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .messages {
@@ -317,19 +321,35 @@ img {
 }
 
 .list a {
-  background: url(../img/background.png);
+  background: url(../img/background.png) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;;
 }
 
 ion-view {
-  background: url("../img/background.png");
+  background: url("../img/background.png") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;;
 }
 
 .card {
-  background: url("../img/background.png");
+  background: url("../img/background.png") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;;
 }
 
 ion-content {
-  background: url("../img/background.png");
+  background: url("../img/background.png") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;;
 }
 
 .list #item-details h3 {
@@ -363,4 +383,8 @@ scroll-bar {
 
 button{
   font-weight: bold;
+}
+
+#transaction-image, img[src="img/approved.png"], img[src="img/rejected.png"] {
+  width: auto !important;
 }
