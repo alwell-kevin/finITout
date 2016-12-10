@@ -14,6 +14,11 @@ router.get('/:elderId', function (req, res) {
         })
 });
 
+router.post('/:transactionId', function(req, res) {
+    return transactions.updateTransaction(req.params.transactionId, req.body)
+        .then(data => res.status(200).send(data));
+})
+
 router.post('/:transactionId/approve', function (req, res) {
     return transactions.updateTransaction(req.params.transactionId, {"Status": 1 })
         .then(data => {
