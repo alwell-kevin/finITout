@@ -150,3 +150,24 @@
 }
 
 
+/*Transaction List*/
+
+img{
+  height: 64px;
+  width: 76px;
+  float: left;
+}
+
+.transaction-item{
+  margin-left: 25%;
+  margin-top: 12px;
+}
+
+.transaction-item-subheader{
+  margin-top: 5%;
+}
+
+.transaction-item-amount{
+  float: right;
+  font-size: xx-large;
+}
