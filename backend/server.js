@@ -17,7 +17,9 @@ server.use(function (req, res, next) {
     console.log(chalk.bold(chalk.yellow(req.method)) + chalk.magenta(" " + req.path));
     console.log(chalk.bold(chalk.gray("BODY: ")) + (JSON.stringify(req.body)));
 
-    res.setHeader('Access-Control-Allow-Origin', FRONTEND_ORIGIN);
+    //res.setHeader('Access-Control-Allow-Origin', FRONTEND_ORIGIN);
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 
     next();
 });
