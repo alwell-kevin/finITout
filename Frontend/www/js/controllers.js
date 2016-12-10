@@ -149,17 +149,20 @@ angular.module('starter.controllers', [])
 
       {
         values: $scope.data1
-          //[{x: new Date('Sat, 19 Nov 2016 17:23:22 GMT'), y: 15},{x: new Date('Sat, 19 Nov 2016 17:23:30 GMT'), 
-          // y: 15},{x: new Date('Sat, 19 Nov 2016 17:23:52 GMT'), y: 20},{x: new Date('Sat, 19 Nov 2016 17:23:56 GMT'),
-          // y: 35},{x: new Date('Sat, 19 Nov 2016 17:23:59 GMT'), y: 55}],
+
       }
 
     ];
     console.log("ending ChartCtrl");
   })
-  .controller('ChatCtrl', function($scope) {
+  .controller('DetailsCtrl', function($scope) {
     $scope.hideTime = true;
+    $scope.data = {};
+    console.log($stateParams.transaction);
+    $scope.transaction = $stateParams.transaction;
 
-  })
+  }
+)
+  
   .controller('ProfileCtrl', function($scope) {})
   .controller('CallCtrl', function($scope) {});

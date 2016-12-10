@@ -149,6 +149,18 @@
   display: none;
 }
 
+
+/**Transaction Details*/
+.details  {
+  margin-left: 33%;
+}
+
+.details-button  {
+  margin-right: 33%;
+}
+
+
+
 /*Transaction List*/
 
 img{
@@ -184,4 +196,5 @@ img{
   padding-left: 20px;
   padding-right: 20px;
 }
+
 
