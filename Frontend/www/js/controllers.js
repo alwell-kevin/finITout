@@ -54,7 +54,7 @@ angular.module('starter.controllers', [])
     $state.go("tab.details", {obj:transaction});
   }
 })
-  .controller('DetailsCtrl', function($scope,$state,$ionicPopup) {
+  .controller('DetailsCtrl', function($scope,$state,$ionicPopup,$location) {
       $scope.hideTime = true;
       $scope.transaction = {};
       console.log($state.params.obj);
@@ -65,11 +65,13 @@ angular.module('starter.controllers', [])
           $ionicPopup.alert({
             title: 'Transaction Approved',
           });
+          $location.path("/tab/transactionlist");
         }
         else{
           $ionicPopup.alert({
             title: 'Transaction Rejected',
           });
+          $location.path("/tab/transactionlist");
         }
 
       }

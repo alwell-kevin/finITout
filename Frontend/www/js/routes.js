@@ -34,7 +34,7 @@ angular.module('app.routes', [])
 .state('tab.transactionlist', {
   url: '/transactionlist',
   views: {
-    'tab-profile': {
+    'tab-home': {
       templateUrl: 'templates/transaction-list.html',
       controller: 'TransactionCtrl'
     }
@@ -83,19 +83,6 @@ angular.module('app.routes', [])
       templateUrl: 'templates/tab-details.html',
       controller: 'DetailsCtrl'
     }
-  }
-})
-
-.state('tab.profile', {
-  url: '/profile',
-  views: {
-    'tab-profile': {
-      templateUrl: 'templates/tab-profile.html',
-      controller: 'ProfileCtrl'
-    }
-  },
-  params: {
-    'transaction': 'some default'
   }
 })
 .state('tab.call', {
