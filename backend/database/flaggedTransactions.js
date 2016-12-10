@@ -25,23 +25,23 @@ var addFlaggedTransaction = function(flaggedTransaction){
 var getFlaggedTransactionsByElderId = function(elderId){
   var statement = "SELECT * FROM `flagTransaction` WHERE `elderID` = '"+elderId+"'";
 
-  dao.query(statement, function(resolve, reject, rows){
+  return dao.query(statement, function(resolve, reject, rows){
     console.log(rows);
     resolve(rows);
   });
 
-}
+};
 
 //list the flagged transactions that the user hasn't responded to yet.
 var getPendingFlaggedTransactions = function(elderId){
 
   var statement = "SELECT * FROM `flagTransaction` WHERE `elderID` = '"+elderId+"' AND `Status` IS NULL";
-  dao.query(statement, function(resolve, reject, rows){
+  var toReturn = dao.query(statement, function(resolve, reject, rows){
     console.log(rows);
     resolve(rows);
   });
 
-}
+};
 
 //list the flagged transactions that the user has responded to yet.
 var getNonPendingFlaggedTransactions = function(elderId){

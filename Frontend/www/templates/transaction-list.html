@@ -5,11 +5,11 @@
 <!-- amount cateory description -->
 
       <div ng-repeat="transaction in transactions" >
-        <a  ng-click="getItem(transaction)" class="item item-thumbnail-center">
-          <img ng-show="transaction.approved" src="img/check.png">
-          <img ng-hide="transaction.approved" src="img/ex.png">
+        <a ng-click="getItem(transaction)" class="item item-thumbnail-center">
           <div class="transaction-item">
-            <div class="transaction-item-amount">${{transaction.amount}}</div>
+            <img id="transaction-image" ng-show="transaction.approved" src="img/check.png">
+            <img id="transaction-image" ng-hide="transaction.approved" src="img/ex.png">
+            <div id="transaction-price" class="transaction-item-amount">${{transaction.amount}}</div>
             <h2>{{transaction.description}}</h2>
             <p class="transaction-item-subheader">{{transaction.category}}</p>
           </div>
