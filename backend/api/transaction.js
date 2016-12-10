@@ -14,4 +14,12 @@ router.get('/:elderId', function (req, res) {
         })
 });
 
+router.post('/:transactionId/approve', function (req, res) {
+    res.status(200).send("this would be the approved thing");
+});
+
+router.post('/:transactionId/reject', function (req, res) {
+    res.status(200).send("this would be where you reject");
+});
+
 module.exports = router;

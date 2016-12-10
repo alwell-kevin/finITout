@@ -1,6 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var chalk = require('chalk');
+var io = require('./io');
 
 var server = express();
 
@@ -22,6 +23,12 @@ server.use(function (req, res, next) {
 
 
 server.use('/api', require('./api'));
+
+server.post('/notification', function (req, res) {
+   var socket = io.getSocket().main;
+   socket.emit('notification');
+   req.status(200).send();
+});
 
 server.get('/', function (req, res) {
     res.status(200).send('hello from the server!;');
