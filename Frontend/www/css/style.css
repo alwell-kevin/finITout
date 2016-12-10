@@ -28,6 +28,7 @@
 
 .scroll {
   padding: 10px 0 50px !important;
+  background: url("../img/background.png");
 }
 
 .messages {
@@ -168,10 +169,24 @@ img{
   width: 76px;
   float: left;
 }
+#login-img{
+  margin-top: 36px;
+}
 
 .transaction-item{
   margin-left: 25%;
   margin-top: 12px;
+  color: white;
+}
+
+.transaction-item h2{
+  color: white;
+  text-transform: capitalize;
+}
+
+.transaction-item p{
+  color: white;
+  text-transform: capitalize;
 }
 
 .transaction-item-subheader{
@@ -197,4 +212,30 @@ img{
   padding-right: 20px;
 }
 
+.list a{
+  background: url(../img/background.png);
+}
 
+
+ion-view{
+  background: url("../img/background.png");
+}
+.card{
+  background: url("../img/background.png");
+}
+
+ion-content{
+  background: url("../img/background.png");
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+}
+
+scroll-bar{
+  display: none !important;
+}
+
+.button{
+  border-radius: 0px;
+}
