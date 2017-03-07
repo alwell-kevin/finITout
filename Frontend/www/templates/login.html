@@ -1,22 +1,20 @@
-<ion-view hide-nav-bar="true" id="page6">
-  <ion-content padding="true" class="has-header">
-    <div class="center">
-      <img id="login-img" src="img/logo.png">
+<ion-view hide-nav-bar="true">
+  <ion-content>
+    <div class="to-from-container">
+      <div class="top-level-shading"></div>
+      <div class="bottom-level-shading"></div>
+      <div class="to-text">BELFORD</div>
+      <div class="from-text">PIER 11</div>
     </div>
-    <div class="list card">
-      <a style="margin-top: 80px;" class="item">
-        <div style="border-radius: 0px;" class="list list-inset">
-          <div class="input-credentials">
-            <label class="item item-input">
-              <input autocomplete="off" type="text" placeholder="Username" ng-model="data.username">
-            </label>
-            <label class="item item-input">
-              <input type="password" placeholder="Password" ng-model="data.password">
-            </label>
-          </div>
-        </div>
-        <button class="button button-block action-btn" ng-click="login()">Login</button>
-      </a>
+    <div class="water-container">
+      <div class="water-background"></div>
+      <div class="water-text">1 ADULT</div>
+    </div>
+    <div class="date-time-container">
+      <div class="date-time"><div class="date">{{date}}</div><div class="time">{{time}}</div></div>
+    </div>
+    <div class="location-container">
+      <div class="location-text">NY Waterway Hudson River Ferry</div>
     </div>
 </ion-view>
 </ion-content>

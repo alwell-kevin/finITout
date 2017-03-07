@@ -39,10 +39,52 @@ angular.module('starter.controllers', [])
 })
 
 .controller('LoginCtrl', function($scope, $state) {
-  $scope.data = {};
+  var date = new Date();
+  var hours = date.getHours();
+  var minutes = date.getMinutes();
+  //date
+  var day = date.getDate();
+  var yr = date.getFullYear();
+  var month = date.getMonth() + 1;
 
-  $scope.login = function() {
-    $state.go('tab.test');
+  
+  //time
+    $scope.time = formatDate(date);
+
+
+  $scope.date = month + '/' + day + '/' + yr;
+
+  // $scope.login = function() {
+  //   $state.go('tab.test');
+  // }
+
+  function formatDate(date) {
+    var d = new Date(date);
+    var hh = d.getHours();
+    var m = d.getMinutes();
+    
+    var dd = "AM";
+    var h = hh;
+    if(h >= 12) {
+      h = hh - 12;
+      dd = "PM";
+    }
+    if(h == 0) {
+      h = 12;
+    }
+    m = m < 10 ? "0" + m : m;
+
+    /* if you want 2 digit hours:
+    h = h<10?"0"+h:h; */
+
+    var pattern = new RegExp("0?" + hh + ":" + m);
+
+    var replacement = h + ":" + m;
+    /* if you want to add seconds
+    replacement += ":"+s;  */
+    replacement += " " + dd;
+
+    return replacement
   }
 })
 

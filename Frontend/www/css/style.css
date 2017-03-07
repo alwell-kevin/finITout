@@ -116,8 +116,10 @@
 }
 
 .scroll {
-  padding: 10px 0 50px !important;
-  background: url("../img/background.png");
+  /*  padding: 10px 0 50px !important;
+*/
+  /*  background: url("../img/background.png");
+*/
 }
 
 .messages {
@@ -317,19 +319,22 @@ img {
 }
 
 .list a {
-  background: url(../img/background.png);
+  /*  background: url(../img/background.png);
+*/
 }
 
 ion-view {
-  background: url("../img/background.png");
+  /*  background: url("../img/background.png");
+*/
 }
 
 .card {
-  background: url("../img/background.png");
+  /*  background: url("../img/background.png");
+*/
 }
 
 ion-content {
-  background: url("../img/background.png");
+  /*background: url("../img/background.png");*/
 }
 
 .list #item-details h3 {
@@ -361,6 +366,24 @@ scroll-bar {
   border-radius: 0px;
 }
 
-button{
+button {
   font-weight: bold;
+}
+
+.location-container {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+  height: 40px;
+  background-color: black;
+}
+
+.location-text {
+  color: white;
+  text-align: center;
+  font-size: 1em;
+  font-weight: bolder;
+  margin-top: 4%;
+  font-family: Arial;
 }
