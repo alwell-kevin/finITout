@@ -484,7 +484,8 @@ button {
   position: absolute;
   z-index: 999;
 }
-.bottom-fill-header{
+
+.bottom-fill-header {
   width: 0%;
   height: 65px;
   background: #00AEEE;
@@ -496,7 +497,38 @@ button {
   border-bottom: 1px solid white;
 }
 
-.long-destination{
+.waves {
+  background: url(../img/waves.png);
+  height: 20px;
+  width: 75px;
+  margin-top: 128px;
+  position:absolute;
+  z-index: 999;
+  transform: translate(25px, 51px) rotate(333deg);
+}
+
+.waves2 {
+  margin-left: 120px;
+  background: url(../img/waves.png);
+  height: 20px;
+  width: 75px;
+  margin-top: 128px;
+  position:absolute;
+  z-index: 999;
+  transform: translate(25px, 51px) rotate(333deg);
+}
+.waves3 {
+  margin-left:240px;
+  background: url(../img/waves.png);
+  height: 20px;
+  width: 75px;
+  margin-top: 128px;
+  position:absolute;
+  z-index: 999;
+  transform: translate(25px, 51px) rotate(333deg);
+}
+
+.long-destination {
   margin-left: 250px !important;
 }
 
