@@ -479,8 +479,8 @@ button {
   width: 0%;
   height: 65px;
   background: #42C2EE;
-  -webkit-animation: mymove 4s infinite;
-  animation: mymove 4s infinite;
+  -webkit-animation: mymove 5s infinite;
+  animation: mymove 5s infinite;
   position: absolute;
   z-index: 999;
 }
@@ -489,8 +489,8 @@ button {
   width: 0%;
   height: 65px;
   background: #00AEEE;
-  -webkit-animation: mymove 4s infinite;
-  animation: mymove 4s infinite;
+  -webkit-animation: mymove 5s infinite;
+  animation: mymove 5s infinite;
   position: absolute;
   z-index: 999;
   margin-top: 65px;
@@ -502,9 +502,11 @@ button {
   height: 20px;
   width: 75px;
   margin-top: 128px;
-  position:absolute;
+  position: absolute;
   z-index: 999;
   transform: translate(25px, 51px) rotate(333deg);
+  -webkit-animation: mywaves 3s infinite;
+  animation: mywaves 3s infinite;
 }
 
 .waves2 {
@@ -513,23 +515,76 @@ button {
   height: 20px;
   width: 75px;
   margin-top: 128px;
-  position:absolute;
+  position: absolute;
   z-index: 999;
   transform: translate(25px, 51px) rotate(333deg);
+  -webkit-animation: mywaves 3s infinite;
+  animation: mywaves 3s infinite;
 }
+
 .waves3 {
-  margin-left:240px;
+  margin-left: 240px;
   background: url(../img/waves.png);
   height: 20px;
   width: 75px;
   margin-top: 128px;
-  position:absolute;
+  position: absolute;
   z-index: 999;
   transform: translate(25px, 51px) rotate(333deg);
+  -webkit-animation: mywaves 3s infinite;
+  animation: mywaves 3s infinite;
+}
+
+.wave{
+  margin-left: -120px;;
+  background: url(../img/waves.png);
+  height: 20px;
+  width: 75px;
+  margin-top: 128px;
+  position: absolute;
+  z-index: 999;
+  transform: translate(25px, 51px) rotate(333deg);
+  -webkit-animation: mywaves 3s infinite;
+  animation: mywaves 3s infinite;
+}
+
+.fwave{
+  margin-left: -240px;;
+  background: url(../img/waves.png);
+  height: 20px;
+  width: 75px;
+  margin-top: 128px;
+  position: absolute;
+  z-index: 999;
+  transform: translate(25px, 51px) rotate(333deg);
+  -webkit-animation: mywaves 3s infinite;
+  animation: mywaves 3s infinite;
+}
+
+.f1wave{
+  margin-left: -360px;;
+  background: url(../img/waves.png);
+  height: 20px;
+  width: 75px;
+  margin-top: 128px;
+  position: absolute;
+  z-index: 999;
+  transform: translate(25px, 51px) rotate(333deg);
+  -webkit-animation: mywaves 3s infinite;
+  animation: mywaves 3s infinite;
 }
 
 .long-destination {
   margin-left: 250px !important;
+}
+
+@keyframes mywaves {
+  from {
+    left: 10%;
+  }
+  to {
+    left: 100%;
+  }
 }
 
 @keyframes mymove {
