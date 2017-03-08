@@ -375,7 +375,7 @@ button {
   left: 0;
   right: 0;
   position: absolute;
-  height: 40px;
+  height: 41px;
   background-color: black;
 }
 
@@ -386,4 +386,91 @@ button {
   font-weight: bolder;
   margin-top: 3%;
   font-family: Arial;
+}
+
+.top-level-shading {
+  top: 0;
+  height: 65px;
+  background-color: #4A81A4;
+  position: relative;
+}
+
+.bottom-level-shading {
+  height: 65px;
+  background-color: #10598C;
+  position: relative;
+  border-bottom: 1px solid white;
+}
+
+.to-text {
+  position: absolute;
+  color: white;
+  font-weight: bolder;
+  float: right;
+  margin-right: 15px;
+  margin-left: 270px;
+  font-size: 20px;
+  margin-top: 56px;
+  z-index: 1000;
+}
+
+.from-text {
+  position: absolute;
+  color: white;
+  font-weight: bolder;
+  margin-left: 15px;
+  font-size: 20px;
+  margin-top: 56px;
+  z-index: 1000;
+}
+
+.top-water-container {
+  height: 215px;
+  background-color: #42C6D6;
+  position: relative;
+}
+
+.bottom-water-container {
+  height: 215px;
+  position: relative;
+  background-color: #00B6CE;
+  border-bottom: 1px solid white;
+}
+
+.water-text {
+  position: absolute;
+  font-weight: bolder;
+  font-size: 41px;
+  color: white;
+  text-align: center;
+  margin-top: 205px;
+  width: 100%;
+  z-index: 1000;
+}
+
+.date-time-container {
+  background-color: #424142;
+  height: 40px;
+}
+
+.date-time {
+  color: white;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.date {
+  display: inline;
+  color: white;
+  font-weight: bolder;
+  font-size: 16px;
+}
+
+.time {
+  display: inline;
+  color: white;
+  font-weight: bolder;
+  font-size: 16px;
 }
