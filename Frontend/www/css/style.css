@@ -479,8 +479,8 @@ button {
   width: 0%;
   height: 65px;
   background: #42C2EE;
-  -webkit-animation: mymove 5s infinite;
-  animation: mymove 5s infinite;
+  -webkit-animation: mymove 7s infinite;
+  animation: mymove 7s infinite;
   position: absolute;
   z-index: 999;
 }
@@ -489,8 +489,8 @@ button {
   width: 0%;
   height: 65px;
   background: #00AEEE;
-  -webkit-animation: mymove 5s infinite;
-  animation: mymove 5s infinite;
+  -webkit-animation: mymove 7s infinite;
+  animation: mymove 7s infinite;
   position: absolute;
   z-index: 999;
   margin-top: 65px;
@@ -505,8 +505,8 @@ button {
   position: absolute;
   z-index: 999;
   transform: translate(25px, 51px) rotate(333deg);
-  -webkit-animation: mywaves 3s infinite;
-  animation: mywaves 3s infinite;
+  -webkit-animation: mywaves 5s infinite;
+  animation: mywaves 5s infinite;
 }
 
 .waves2 {
@@ -518,8 +518,8 @@ button {
   position: absolute;
   z-index: 999;
   transform: translate(25px, 51px) rotate(333deg);
-  -webkit-animation: mywaves 3s infinite;
-  animation: mywaves 3s infinite;
+  -webkit-animation: mywaves 5s infinite;
+  animation: mywaves 5s infinite;
 }
 
 .waves3 {
@@ -531,8 +531,8 @@ button {
   position: absolute;
   z-index: 999;
   transform: translate(25px, 51px) rotate(333deg);
-  -webkit-animation: mywaves 3s infinite;
-  animation: mywaves 3s infinite;
+  -webkit-animation: mywaves 5s infinite;
+  animation: mywaves 5s infinite;
 }
 
 .wave{
@@ -544,8 +544,8 @@ button {
   position: absolute;
   z-index: 999;
   transform: translate(25px, 51px) rotate(333deg);
-  -webkit-animation: mywaves 3s infinite;
-  animation: mywaves 3s infinite;
+  -webkit-animation: mywaves 5s infinite;
+  animation: mywaves 5s infinite;
 }
 
 .fwave{
@@ -557,8 +557,8 @@ button {
   position: absolute;
   z-index: 999;
   transform: translate(25px, 51px) rotate(333deg);
-  -webkit-animation: mywaves 3s infinite;
-  animation: mywaves 3s infinite;
+  -webkit-animation: mywaves 5s infinite;
+  animation: mywaves 5s infinite;
 }
 
 .f1wave{
@@ -570,8 +570,8 @@ button {
   position: absolute;
   z-index: 999;
   transform: translate(25px, 51px) rotate(333deg);
-  -webkit-animation: mywaves 3s infinite;
-  animation: mywaves 3s infinite;
+  -webkit-animation: mywaves 5s infinite;
+  animation: mywaves 5s infinite;
 }
 
 .long-destination {
