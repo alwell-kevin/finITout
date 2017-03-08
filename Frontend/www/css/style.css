@@ -485,6 +485,19 @@ button {
   z-index: 999;
 }
 
+.top-fill-header:after {
+  content: '';
+  position: absolute;
+  top: 45px;
+  left: 100%;
+  margin-left: -32px;
+  width: 0;
+  height: 0;
+  border-bottom: solid 20px #42C2EE;
+  border-left: solid 20px transparent;
+  border-right: solid 20px transparent;
+}
+
 .bottom-fill-header {
   width: 0%;
   height: 65px;
@@ -495,6 +508,19 @@ button {
   z-index: 999;
   margin-top: 65px;
   border-bottom: 1px solid white;
+}
+
+.bottom-fill-header:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 100%;
+  margin-left: -32px;
+  width: 0;
+  height: 0;
+  border-top: solid 20px #00AEEE;
+  border-left: solid 20px transparent;
+  border-right: solid 20px transparent;
 }
 
 .waves {
@@ -535,8 +561,9 @@ button {
   animation: mywaves 5s infinite;
 }
 
-.wave{
-  margin-left: -120px;;
+.wave {
+  margin-left: -120px;
+  ;
   background: url(../img/waves.png);
   height: 20px;
   width: 75px;
@@ -548,8 +575,9 @@ button {
   animation: mywaves 5s infinite;
 }
 
-.fwave{
-  margin-left: -240px;;
+.fwave {
+  margin-left: -240px;
+  ;
   background: url(../img/waves.png);
   height: 20px;
   width: 75px;
@@ -561,8 +589,9 @@ button {
   animation: mywaves 5s infinite;
 }
 
-.f1wave{
-  margin-left: -360px;;
+.f1wave {
+  margin-left: -360px;
+  ;
   background: url(../img/waves.png);
   height: 20px;
   width: 75px;
