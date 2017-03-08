@@ -425,13 +425,13 @@ button {
 }
 
 .top-water-container {
-  height: 215px;
+  height: 208px;
   background-color: #42C6D6;
   position: relative;
 }
 
 .bottom-water-container {
-  height: 215px;
+  height: 208px;
   position: relative;
   background-color: #00B6CE;
   border-bottom: 1px solid white;
@@ -443,7 +443,7 @@ button {
   font-size: 41px;
   color: white;
   text-align: center;
-  margin-top: 205px;
+  margin-top: 196px;
   width: 100%;
   z-index: 1000;
 }
