@@ -47,22 +47,29 @@ angular.module('starter.controllers', [])
   var yr = date.getFullYear();
   var month = date.getMonth() + 1;
 
-  
+
   //time
-    $scope.time = formatDate(date);
-
-
+  $scope.time = formatDate(date);
   $scope.date = month + '/' + day + '/' + yr;
+
+  $scope.to = "PIER 11";
+  $scope.from = "BELFORD";
 
   // $scope.login = function() {
   //   $state.go('tab.test');
   // }
 
+  $scope.toFrom = function() {
+    var to = $scope.to;
+    $scope.to = $scope.from;
+    $scope.from = to;
+  }
+
   function formatDate(date) {
     var d = new Date(date);
     var hh = d.getHours();
     var m = d.getMinutes();
-    
+
     var dd = "AM";
     var h = hh;
     if(h >= 12) {

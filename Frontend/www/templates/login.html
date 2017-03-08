@@ -2,8 +2,8 @@
   <ion-content>
     <div class="to-from-container">
       <div class="top-level-shading">
-        <div class="from-text">BELFORD</div>
-        <div class="to-text">PIER 11</div>
+        <div class="from-text">{{from}}</div>
+        <div class="to-text" ng-class="{'long-destination': to === 'BELFORD'}" ng-click="toFrom()">{{to}}</div>
         <div class="top-fill-header"></div>
         <div class="bottom-fill-header"></div>
       </div>

@@ -496,6 +496,10 @@ button {
   border-bottom: 1px solid white;
 }
 
+.long-destination{
+  margin-left: 250px !important;
+}
+
 @keyframes mymove {
   from {
     width: 0%;
