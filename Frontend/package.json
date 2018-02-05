@@ -3,6 +3,7 @@
   "version": "1.1.1",
   "description": "Dexterous: An IOT ionic project",
   "dependencies": {
+    "cordova-plugin-ionic": "^3.0.0",
     "cors": "^2.8.1",
     "gulp": "^3.5.6",
     "gulp-concat": "^2.2.0",
@@ -30,5 +31,14 @@
       "version": "",
       "locator": "ios"
     }
-  ]
+  ],
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-ionic": {
+        "APP_ID": "7b09982d",
+        "CHANNEL_NAME": "Master",
+        "UPDATE_METHOD": "background"
+      }
+    }
+  }
 }

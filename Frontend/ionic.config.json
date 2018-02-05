@@ -1,4 +1,12 @@
 {
   "name": "FinITTech",
-  "app_id": "73519055"
+  "app_id": "7b09982d",
+  "integrations": {},
+  "type": "ionic1",
+  "watchPatterns": [
+    "scss/**/*",
+    "www/**/*",
+    "!www/lib/**/*",
+    "!www/**/*.map"
+  ]
 }
